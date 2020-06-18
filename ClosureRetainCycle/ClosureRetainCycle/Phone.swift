@@ -28,7 +28,11 @@ class Person {
     }
     
     func setupPhone() {
-        self.phone.whenPhoneRings {
+        self.phone.whenPhoneRings { [weak self] in
+            guard let self = self else {
+                return // Display something if self is nil?
+            }
+            
             print("<Answering phone>")
             print("Hello this is \(self.name)")
         }

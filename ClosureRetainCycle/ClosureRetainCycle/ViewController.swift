@@ -14,10 +14,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let phone = Phone()
-        let person = Person(name: "John", phone: phone)
+        var person: Person? = Person(name: "John", phone: phone)
 
-        person.answerPhone()
+        person?.answerPhone()
+        person = nil
         
+        phone.call()
         // Question: Did the memory get cleaned up?
     }
 }
